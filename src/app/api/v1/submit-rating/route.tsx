@@ -4,7 +4,7 @@ import Advice from '@/model/advice';
 export async function POST(req: Request) {
   const body = await req.json();
   // Record users rating to their history
-  // todoThis needs to be updated to reflect using NextAuth instead of Passport once auth has been implemented
+  // todo This needs to be updated to reflect using NextAuth instead of Passport once auth has been implemented
   await User.updateOne(
     { _id: req.session.passport.user },
     {
