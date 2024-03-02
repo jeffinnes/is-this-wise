@@ -1,3 +1,4 @@
+// This route submits a rating to an advice record
 import User from '@/model/user';
 import Advice from '@/model/advice';
 

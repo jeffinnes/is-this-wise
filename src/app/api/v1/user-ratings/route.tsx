@@ -1,3 +1,4 @@
+// This route returns all ratings by a user
 import User from '@/model/user';
 
 export async function GET(req: Request) {
