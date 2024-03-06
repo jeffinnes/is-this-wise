@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { raleway, roboto_slab, montserrat } from '@/utils/fonts';
+import './reset.css';
 import './globals.css';
 
 export const metadata: Metadata = {
