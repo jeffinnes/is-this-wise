@@ -1,95 +1,42 @@
 import Image from "next/image";
+import Card from "@/components/ui/card/Card";
 import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <>
+    <Card subType="intro-block">
+    {/* <h1 v-if="userFullName">Welcome back {{ userFullName }}!</h1> */}
+    <p className="intro-text">
+      Human history has produced a plethora of advice, but how much of
+      it is actually any good? "<span className="bold">Is this wise?</span>"
+      is an attempt to crowdsource the answer to that question.
+    </p>
+    <p className="call-to-action">Check out what others think of the advice below.
+      When you're ready to lend a hand, create an account or login and start rating!</p>
+  </Card>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+  <div className="user-choice">
+    <base-button link :to="'/quick-advice'">
+      I'm just here for some free advice.
+    </base-button>
+    <base-button v-if="isLoggedIn" link :to="'/rate-advice'">
+      I'm ready to help!
+    </base-button>
+    <base-button v-else link :to="'/login'">
+      Login to start rating!
+    </base-button>
+  </div>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+  <Card subType="rated-advice">
+    <base-ripple v-if="isLoading"></base-ripple>
+    <aggregate-advice-item v-for="adviceObj in allRatings"
+    :key="adviceObj._id"
+    :adviceText="adviceObj.adviceText"
+    :goodRatings="adviceObj.timesRatedGood"
+    :badRatings="adviceObj.timesRatedBad"
+    ></aggregate-advice-item>
+  </Card>
+    </>
   );
 }

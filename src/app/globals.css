@@ -7,14 +7,10 @@ html {
 }
 
 body {
-  /* background-color: rgb(2, 60, 104); */
-  font-family: 'Raleway', sans-serif;
   height: 100%;
 }
 
-#app {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+main {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: 4.5rem auto;
@@ -74,6 +70,7 @@ div.nav-link:hover {
   background-color: rgb(255, 115, 91);
 }
 
+/* ! Remember that main used to be in a container called #app */
 main.content-box {
   grid-column: span 12;
   display: grid;
