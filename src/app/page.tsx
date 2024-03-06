@@ -1,8 +1,13 @@
+import { useState } from "react";
 import Image from "next/image";
 import Card from "@/components/ui/card/Card";
+import Button from "@/components/ui/button/Button";
 import styles from "./page.module.css";
 
 export default function Home() {
+  // temporary state object
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
     <>
     <Card subType="intro-block">
@@ -17,15 +22,19 @@ export default function Home() {
   </Card>
 
   <div className="user-choice">
-    <base-button link :to="'/quick-advice'">
+    <Button link={true} to="'/quick-advice'">
       I'm just here for some free advice.
-    </base-button>
-    <base-button v-if="isLoggedIn" link :to="'/rate-advice'">
-      I'm ready to help!
-    </base-button>
-    <base-button v-else link :to="'/login'">
-      Login to start rating!
-    </base-button>
+    </Button>
+    {isLoggedIn && (
+      <Button v-if="isLoggedIn" link={true} to="'/rate-advice'">
+        I'm ready to help!
+      </Button>
+    )}
+    {!isLoggedIn && (  
+      <Button v-else link={true} to="'/login'">
+        Login to start rating!
+      </Button>
+    )}
   </div>
 
   <Card subType="rated-advice">
