@@ -2,12 +2,14 @@ import { useState } from "react";
 import Image from "next/image";
 import Card from "@/components/ui/card/Card";
 import Button from "@/components/ui/button/Button";
+import LoadingRipple from "@/components/ui/loadingRipple/LoadingRipple";
 import styles from "./page.module.css";
 
 export default function Home() {
   // temporary state objects
   const [userFullName, setUserFullName] = useState("John Doe");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   return (
     <>
@@ -39,7 +41,7 @@ export default function Home() {
   </div>
 
   <Card subType="rated-advice">
-    <base-ripple v-if="isLoading"></base-ripple>
+    {loading && <LoadingRipple></LoadingRipple>}
     <aggregate-advice-item v-for="adviceObj in allRatings"
     :key="adviceObj._id"
     :adviceText="adviceObj.adviceText"
