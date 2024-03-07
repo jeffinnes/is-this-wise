@@ -1,0 +1,82 @@
+.aggAdviceItem {
+  font-size: 1.3rem;
+  font-family: 'Montserrat', sans-serif;
+  margin: 1rem;
+  background-color: rgba(236, 194, 133, 1);
+  color: rgba(45, 52, 54, 1);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  grid-column: span 4;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto 5rem 3rem 2rem;
+}
+
+.adviceText {
+  font-size: 1.6rem;
+  line-height: 2rem;
+  text-align: center;
+  padding: 0.9rem;
+  grid-column: 1 / 13;
+}
+
+.aggBarRow {
+  grid-column: 2 / 12;
+  display: flex;
+}
+
+.aggBar {
+  border: 0.2rem solid rgba(45, 52, 54, 1);
+  height: 25%;
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.goodBar {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(26, 102, 26);
+}
+
+.labels {
+  grid-column: 2 / 12;
+  display: flex;
+  justify-content: space-between;
+}
+
+.labels p {
+  font-weight: 700;
+}
+
+.total {
+  grid-column: 2 / 12;
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 1200px) {
+  .aggAdviceItem {
+    grid-column: span 6;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .aggAdviceItem {
+    grid-column: 2 / 12;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .aggAdviceItem {
+    grid-column: span 12;
+  }
+
+  .adviceText,
+  .labels p,
+  .total p {
+    font-size: 1.8rem;
+  }
+}
