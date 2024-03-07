@@ -58,16 +58,16 @@ export default function Home() {
       </Card>
 
       <div className="user-choice">
-        <Button link={true} to="'/quick-advice'">
+        <Button link={true} to="/quick-advice">
           I&apos;m just here for some free advice.
         </Button>
         {isLoggedIn && (
-          <Button link={true} to="'/rate-advice'">
+          <Button link={true} to="/rate-advice">
             I&apos;m ready to help!
           </Button>
         )}
         {!isLoggedIn && (
-          <Button link={true} to="'/login'">
+          <Button link={true} to="/login">
             Login to start rating!
           </Button>
         )}
