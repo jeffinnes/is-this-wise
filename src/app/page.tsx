@@ -5,13 +5,14 @@ import Button from "@/components/ui/button/Button";
 import styles from "./page.module.css";
 
 export default function Home() {
-  // temporary state object
+  // temporary state objects
+  const [userFullName, setUserFullName] = useState("John Doe");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <>
     <Card subType="intro-block">
-    {/* <h1 v-if="userFullName">Welcome back {{ userFullName }}!</h1> */}
+    {userFullName && <h1 >Welcome back {userFullName}!</h1>}
     <p className="intro-text">
       Human history has produced a plethora of advice, but how much of
       it is actually any good? "<span className="bold">Is this wise?</span>"
@@ -26,12 +27,12 @@ export default function Home() {
       I'm just here for some free advice.
     </Button>
     {isLoggedIn && (
-      <Button v-if="isLoggedIn" link={true} to="'/rate-advice'">
+      <Button link={true} to="'/rate-advice'">
         I'm ready to help!
       </Button>
     )}
     {!isLoggedIn && (  
-      <Button v-else link={true} to="'/login'">
+      <Button link={true} to="'/login'">
         Login to start rating!
       </Button>
     )}
