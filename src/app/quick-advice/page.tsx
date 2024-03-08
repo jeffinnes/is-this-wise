@@ -39,11 +39,11 @@ export default function QuickAdvice() {
           {canRequest && <span>{advice}</span>}
         </div>
 
-        <div className="user-choice">
+        <div className={styles.userChoice}>
           {canRequest && <Button onClick={handleGetAdvice}>More Please!</Button>}
           {!canRequest && (
             <div>
-              <p className="cooldown">Receiving wisdom from the ancients</p>
+              <p className={styles.cooldown}>Receiving wisdom from the ancients</p>
             </div>
           )}
         </div>

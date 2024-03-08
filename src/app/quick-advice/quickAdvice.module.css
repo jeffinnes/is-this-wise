@@ -22,20 +22,9 @@
 }
 
 @media screen and (max-width: 750px) {
-  .introBlock {
-    grid-column: 2 / 12;
-  }
-
-  .adviceCard {
-    grid-column: span 12;
-  }
 }
 
 @media screen and (max-width: 620px) {
-  .introBlock {
-    grid-column: span 12;
-  }
-
   .cooldown {
     font-size: 1.6rem;
   }
