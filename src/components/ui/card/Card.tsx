@@ -9,5 +9,10 @@ export default function Card({
   children: React.ReactNode;
   subType?: string;
 }) {
-  return <div className={`${styles.card} ${subType}`}>{children}</div>;
+  // If no subType is passed, just return the base card with the children
+  if (!subType) {
+    return <div className={styles.card}>{children}</div>;
+  }
+
+  return <div className={`${styles.card} ${styles[subType]}`}>{children}</div>;
 }

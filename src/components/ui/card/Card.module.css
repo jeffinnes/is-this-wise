@@ -6,7 +6,13 @@
   margin: 2rem;
 }
 
-.intro-block {
+.introBlock {
   grid-column: 3 / 11;
   padding: 2rem;
+  text-align: center;
+}
+
+.adviceCard {
+  grid-column: 3 / 11;
+  padding: 3rem;
 }
