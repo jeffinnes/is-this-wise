@@ -44,7 +44,7 @@ export default function Home() {
 
   return (
     <>
-      <Card subType="intro-block">
+      <Card subType="introBlock">
         {userFullName && <h1>Welcome back {userFullName}!</h1>}
         <p className="intro-text">
           Human history has produced a plethora of advice, but how much of it is actually any good?
