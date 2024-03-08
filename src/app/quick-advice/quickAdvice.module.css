@@ -1,0 +1,31 @@
+.adviceContainer {
+  height: 20rem;
+  background-color: rgba(240, 248, 255, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-column: 3 / 11;
+  font-size: 2.7rem;
+  text-align: center;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.userChoice {
+  display: flex;
+  justify-content: space-around;
+}
+
+.cooldown {
+  height: 5rem;
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 750px) {
+}
+
+@media screen and (max-width: 620px) {
+  .cooldown {
+    font-size: 1.6rem;
+  }
+}

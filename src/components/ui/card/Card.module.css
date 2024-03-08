@@ -6,7 +6,29 @@
   margin: 2rem;
 }
 
-.intro-block {
+.introBlock {
   grid-column: 3 / 11;
   padding: 2rem;
+  text-align: center;
+}
+
+.adviceCard {
+  grid-column: 3 / 11;
+  padding: 3rem;
+}
+
+@media screen and (max-width: 750px) {
+  .introBlock {
+    grid-column: 2 / 12;
+  }
+
+  .adviceCard {
+    grid-column: span 12;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .introBlock {
+    grid-column: span 12;
+  }
 }
