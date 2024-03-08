@@ -7,10 +7,12 @@ export default function Button({
   children,
   link,
   to,
+  onClick,
 }: {
   children: React.ReactNode;
   link?: boolean;
   to?: Url;
+  onClick?: () => void;
 }) {
   {
     /* If link is true and url is undefined just send the user to the home page, this should never happen unless it's a bug */
@@ -20,6 +22,8 @@ export default function Button({
       {children}
     </Link>
   ) : (
-    <button className={styles.button}>{children}</button>
+    <button className={styles.button} onClick={onClick}>
+      {children}
+    </button>
   );
 }
